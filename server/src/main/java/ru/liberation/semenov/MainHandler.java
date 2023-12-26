@@ -24,7 +24,7 @@ import java.util.stream.Stream;
 public class MainHandler extends SimpleChannelInboundHandler<String> {
 
     public static final String SEPARATOR = "|";
-    private static final String PATH_TO_AUTH_DATA = "server\\src\\main\\resources\\users.txt";
+    private static String PATH_TO_AUTH_DATA = "server\\src\\main\\resources\\users.txt";
     private static final Map<Channel, String> channels = new HashMap<>();
     private static final Map<String, ServerRoomHandler> rooms = new HashMap<>();
 
@@ -87,6 +87,11 @@ public class MainHandler extends SimpleChannelInboundHandler<String> {
 
     public static Map<Channel, String> getChannels() {
         return channels;
+    }
+
+    // For tests
+    public static void setPathToAuthData(String path) {
+        PATH_TO_AUTH_DATA = path;
     }
 
     public static Map<String, ServerRoomHandler> getRooms() {
